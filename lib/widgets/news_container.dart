@@ -5,20 +5,16 @@ class NewsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      alignment: Alignment.bottomCenter,
-      decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(6), bottomLeft: Radius.circular(6))),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ClipRRect(
               borderRadius: BorderRadius.circular(6),
-              child: Image.network(
-                'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+              child: Image.asset(
+                'assets/images.jpg',
                 height: 200,
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.cover,
