@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_ui_setup/models/artical_model.dart';
 
 class NewsTile extends StatelessWidget {
-  const NewsTile({super.key});
+  const NewsTile({super.key, required this.articalModel});
+  final ArticalModel articalModel;
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +15,9 @@ class NewsTile extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
               borderRadius: BorderRadius.circular(6),
-              child: Image.asset(
-                'assets/images.jpg',
+              child: Image.network(
+                articalModel.image ??
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJH_624J4W_xsSK3NPwWebvhVYe3S-KStmbWihZm_Y1UjqPi2M19Rvbfd3aWn_CmjewOk&usqp=CAU",
                 height: 200,
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.cover,
@@ -22,8 +25,8 @@ class NewsTile extends StatelessWidget {
           const SizedBox(
             height: 12,
           ),
-          const Text(
-            'Large Title should be places in this place Large Title should be places in this place sdfadsf',
+          Text(
+            articalModel.tilte,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -35,8 +38,8 @@ class NewsTile extends StatelessWidget {
           const SizedBox(
             height: 4,
           ),
-          const Text(
-            'and here is the desciption of the news you can place your desc here',
+          Text(
+            articalModel.description ?? "",
             maxLines: 2,
             style: TextStyle(color: Colors.black54, fontSize: 14),
           )
